@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="DEV_HOME" value="logs" />
+	<appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${DEV_HOME}/test.log</file>
+		<rollingPolicy	class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${DEV_HOME}/archived/%d{yyyy-MM-dd}/test.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{dd-MM-yyyy HH:mm:ss:SSS}] [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.barun" level="INFO" additivity="false">
+		<appender-ref ref="fileAppender" />
+	</logger>
+	<root level="INFO">
+		<appender-ref ref="fileAppender" />
+	</root>
+</configuration>

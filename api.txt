@@ -1,0 +1,28 @@
+FOR create orderItem>>>>>>>>>>>>>>
+ http://localhost:2324/createorderitem
+ req post
+{
+	"productCode":"p0002",
+	"productName":"test2",
+	"quantity":"1"
+}
+ response
+ successfully created
+ >>>>>>get all order item>>>>>>>>
+ http://localhost:2324/getallorderitem
+req
+response
+ [
+    {
+        "itemId": 1,
+        "productCode": "p0001",
+        "productName": "test",
+        "quantity": 1
+    },
+    {
+        "itemId": 3,
+        "productCode": "p0002",
+        "productName": "test2",
+        "quantity": 1
+    }
+]
